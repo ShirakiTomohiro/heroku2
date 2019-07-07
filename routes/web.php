@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'NewsController@index');
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -46,5 +46,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('news/delete', 'Admin\NewsController@delete')->middleware('auth');
     Route::get('profile', 'NewsController@profile')->middleware('auth');
 });
+
+Route::get('/', 'NewsController@index');
 
 
