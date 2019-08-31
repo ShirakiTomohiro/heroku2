@@ -21,21 +21,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     
 });
 
-Route::group(['prefix' => 'admin'], function() {
- Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
- Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
- Route::post('profile/create', 'Admin\ProfileController@create')->middleware('auth');  
- Route::post('profile/edit', 'Admin\ProfileController@update')->middleware('auth');
- Route::get('profile', 'Admin\ProfileController@index')->middleware('auth');
- Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
- Route::post('profile/edit', 'Admin\ProfileController@updata')->middleware('auth');
- 
- 
- Route::get('profile/delete', 'Admin\ProfileController@delete')->middleware('auth');
-});
+
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
@@ -44,9 +34,22 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('news/edit', 'Admin\NewsController@edit')->middleware('auth');
     Route::post('news/edit', 'Admin\NewsController@update')->middleware('auth');
     Route::get('news/delete', 'Admin\NewsController@delete')->middleware('auth');
-    Route::get('profile', 'NewsController@profile')->middleware('auth');
+   
+    
+    //Route::get('profile', 'NewsController@profile')->middleware('auth');
 });
 
+Route::get('/news/comment/{id}', 'Admin\CommentsController@comment')->middleware('auth')->name('comment.comment');
+Route::post('/news/comment', 'Admin\CommentsController@show')->middleware('auth');
+    
+Route::get('/likes/store/{id}', 'Admin\LikesController@store')->middleware('auth');
+Route::get('/likes/delete/{id}', 'Admin\LikesController@delete')->middleware('auth');
+    
+
+
 Route::get('/', 'NewsController@index');
+Route::get('/home', 'NewsController@index');
+
+
 
 

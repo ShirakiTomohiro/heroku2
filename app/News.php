@@ -18,4 +18,19 @@ class News extends Model
         {
             return $this->hasMany('App\History');
         }
+        
+        public function user()
+        {
+            return $this->belongsTo('App\User');
+        }
+        
+        public function likes()
+        {
+            return $this->hasMany('App\Like');
+        }
+        
+        public function comment()
+        {
+            return $this->hasMany('App\Comment');
+        }
 }

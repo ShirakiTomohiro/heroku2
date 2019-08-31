@@ -227,5 +227,12 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+    
+    'YoutubeServiceProvider' => [
+        Alaouy\Youtube\YoutubeServiceProvider::class,
+        'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
+               ],
+    
+    
 
 ];

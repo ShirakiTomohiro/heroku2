@@ -15,9 +15,8 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600"
          rel="stylesheet" type="text/css">
          
-         <link href="{{ secure_asset('css//app.css') }}" rel="stylesheet">
-         <link href="{{ secure_asset('css//front.css') }}" rel="stylesheet">
-         <link href="{{ secure_asset('css//front2.css') }}" rel="stylesheet">
+         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+         <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
     </head>
     <body>
         <div id="app">
@@ -41,7 +40,8 @@
                         <!-- Authentication Links -->
                         {{-- ログインしていなかったらログイン画面へのリンクを表示 --}}
                         @guest
-                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a></li>
+                            <li><a class="nav-link" href="{{ route('login') }}">{{ __('messages.Login') }}</a></li>
+                             <li><a class="nav-link" href = "{{ route('register') }}">登録</a></li>
                         {{-- ログインしていたらユーザー名とログアウトボタンを表示 --}}
                         @else
                             <li class="nav-item dropdown">
@@ -59,6 +59,8 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                    <li><a class="nav-link" href = "{{ action('Admin\NewsController@create') }}">投稿</a></li>
+                                    <li><a class="nav-link" href = "{{ action('Admin\NewsController@index') }}">Myページ</a></li>
                                 </div>
                             </li>
                             @endguest

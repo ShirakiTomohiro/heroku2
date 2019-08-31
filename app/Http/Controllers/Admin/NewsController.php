@@ -19,9 +19,9 @@ class NewsController extends Controller
   
   public function create(Request $request)
   {
-     $this->validate($request, News::$rules);
-     $news = new News;
-     $form = $request->all();
+       $this->validate($request, News::$rules);
+       $news = new News;
+       $form = $request->all();
      
      if (isset($form['image'])) {
          $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
@@ -30,13 +30,13 @@ class NewsController extends Controller
          $news->image_path = null;
      }
      
-     unset($form['_token']);
-     unset($form['image']);
+       unset($form['_token']);
+       unset($form['image']);
      
-     $news->fill($form);
-     $news->save();
+       $news->fill($form);
+       $news->save();
      
-      return redirect('admin/news/create');
+       return redirect('/home');
   }
   
   public function index(Request $request)
@@ -62,6 +62,8 @@ class NewsController extends Controller
   
   public function update(Request $request)
   {
+
+
       // Validationをかける
       $this->validate($request, News::$rules);
       
@@ -97,8 +99,15 @@ class NewsController extends Controller
   public function delete(Request $request)
   {
    // 該当するNews Modelを取得
-   $news->delete();
-   return redirect('admin/news/');
+     $news->delete();
+     return redirect('admin/news/');
+  }
+  
+  
+  public function comment($id)
+  {
+    
+    return view('admin.news.comment',['id'=>$id]);
   }
   
   
