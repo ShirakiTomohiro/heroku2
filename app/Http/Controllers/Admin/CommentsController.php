@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\Comment;
+use App\News;
 
 class CommentsController extends Controller
 {
@@ -15,7 +16,7 @@ class CommentsController extends Controller
     return view('admin.comment.create',['id'=>$id]);
   }
   
-    public function show(Request $request)
+    public function add(Request $request)
     {
        
         $comment = new Comment;
@@ -28,15 +29,15 @@ class CommentsController extends Controller
         $comment->save();
         return redirect('/home');
     }
-    
-    // public function (Request $request)
-    // {
-    //     $query = Comment::query();
-    //     $query->where('user_id',Auth::user()->id);
-    //     $query->where('news_id',$request->id);
-    //     $query->where('comments',$request->comment);
-    //     $query->where('user_name',Auth::user()->name);
-    //     $comment = $query->get();
-    //     return view('admin.news.comment', ['_form' => $comment]);
-    // }
+  
+    public function show($id)
+    {
+        $news_id = $id;
+        $news = News::where('id', $news_id)->get();
+        $comment = Comment::where('news_id', $news_id)->get();
+        
+        
+        return view('admin.comment.show', ['comment' => $comment, 'news' => $news]); 
+        
+    }
 }

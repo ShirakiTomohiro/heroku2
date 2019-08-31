@@ -9,12 +9,14 @@ use App\News;
 use App\History;
 use Carbon\Carbon;
 use Storage;
+use Auth;
 
 class NewsController extends Controller
 {
     public function add()
   {
-      return view('admin.news.create');
+      $user_name =  Auth::user()->name;
+      return view('admin.news.create', ['user_name' => $user_name]);
   }
   
   public function create(Request $request)
@@ -22,18 +24,23 @@ class NewsController extends Controller
        $this->validate($request, News::$rules);
        $news = new News;
        $form = $request->all();
+
+      // フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
+      if (isset($form['image'])) {
+        $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
+        $news->image_path = Storage::disk('s3')->url($path);
+      } else {
+          $news->image_path = null;
+      }
+
+      // フォームから送信されてきた_tokenを削除する
+      unset($form['_token']);
+      // フォームから送信されてきたimageを削除する
+      unset($form['image']);
+
+      // データベースに保存する
+      $news->fill($form);
      
-     if (isset($form['image'])) {
-         $path = Storage::disk('s3')->putFile('/',$form['image'],'public');
-         $news->image_path = Storage::disk('s3')->url($path);
-     } else {
-         $news->image_path = null;
-     }
-     
-       unset($form['_token']);
-       unset($form['image']);
-     
-       $news->fill($form);
        $news->save();
      
        return redirect('/home');

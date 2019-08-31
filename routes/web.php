@@ -34,13 +34,15 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('news/edit', 'Admin\NewsController@edit')->middleware('auth');
     Route::post('news/edit', 'Admin\NewsController@update')->middleware('auth');
     Route::get('news/delete', 'Admin\NewsController@delete')->middleware('auth');
+    Route::get('comment/show/{id}', 'Admin\CommentsController@show')->middleware('auth')->name('comment.show');
    
     
     //Route::get('profile', 'NewsController@profile')->middleware('auth');
 });
 
 Route::get('/news/comment/{id}', 'Admin\CommentsController@comment')->middleware('auth')->name('comment.comment');
-Route::post('/news/comment', 'Admin\CommentsController@show')->middleware('auth');
+Route::post('/news/comment', 'Admin\CommentsController@add')->middleware('auth');
+
     
 Route::get('/likes/store/{id}', 'Admin\LikesController@store')->middleware('auth');
 Route::get('/likes/delete/{id}', 'Admin\LikesController@delete')->middleware('auth');

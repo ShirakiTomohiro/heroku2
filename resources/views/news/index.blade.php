@@ -7,6 +7,9 @@
                     <div class="post">
                         <div class="row">
                             <div class="text col-md-6">
+                                <div class="user_name">
+                                    {{ $post->user_name }}
+                                </div>
                                 <div class="date">
                                     {{ $post->updated_at->format('Y年m月d日') }}
                                 </div>
@@ -17,6 +20,7 @@
                                     {{ str_limit($post->body, 1500) }}
                                 </div>
                                 <div>
+                                    <a href="admin/comment/show/{{$post->id}}" role="button" class="btn btn-primary">続きを読む</a>
                                     <a href="/likes/store/{{$post->id}}" role="button" class="btn btn-primary">いいね</a>
                                     <a href="/likes/delete/{{$post->id}}" role="button" class="btn btn-primary">いいね解除</a>
                                 </div>

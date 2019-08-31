@@ -39,6 +39,7 @@
                         </div>
                     </div>
                     {{ csrf_field() }}
+                    <input name="user_name" type="hidden" value="{{ $user_name }}">
                     <input type="submit" class="btn btn-primary" value="更新">
                 </form>
             </div>

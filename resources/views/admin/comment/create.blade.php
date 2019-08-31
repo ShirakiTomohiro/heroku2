@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-md-8 mx-auto">
             <h3>コメントする</h3>
-            <form action="{{ action('Admin\CommentsController@show') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ action('Admin\CommentsController@add') }}" method="post" enctype="multipart/form-data">
                 <div class="form-group row">
                     <div class="col-md-10">
                        <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
