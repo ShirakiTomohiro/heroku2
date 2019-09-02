@@ -1,20 +1,22 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ config('app.locale') }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>Laravel</title>
+        
+        <link href="{{url('css/app.css')}}" rel="stylesheet">
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
-                font-family: 'Nunito', sans-serif;
+                font-family: 'Raleway', sans-serif;
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
@@ -62,6 +64,7 @@
                 margin-bottom: 30px;
             }
         </style>
+         <script src="{{url('js/app.js')}}"></script>
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -81,7 +84,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <i class="fa fa-plane" aria-hidden="true"></i> Laravel
                 </div>
 
                 <div class="links">

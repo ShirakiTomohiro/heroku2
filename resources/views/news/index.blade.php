@@ -20,12 +20,22 @@
                                     {{ str_limit($post->body, 1500) }}
                                 </div>
                                 <div>
-                                    <a href="admin/comment/show/{{$post->id}}" role="button" class="btn btn-primary">続きを読む</a>
-                                    <a href="/likes/store/{{$post->id}}" role="button" class="btn btn-primary">いいね</a>
+                                    <a href="admin/comment/show/{{$post->id}}" role="button">続きを読む</a><br>
+                                    <br>
+                                    <?php $liked = false; ?>
+                                    @foreach($post->likes as $like)
+                                     @if ($like->user->id == Auth::id())
+                                     <?php $liked = true;?>
+                                     @endif
+                                    @endforeach
+                                    @if ($liked == true)
                                     <a href="/likes/delete/{{$post->id}}" role="button" class="btn btn-primary">いいね解除</a>
-                                </div>
-                                <div>
-                                    <a href="{{route('comment.comment', [$post->id])}}">コメント</a>
+                                    @else
+                                    <a href="/likes/store/{{$post->id}}" role="button" class="btn btn-primary">いいね : {{count($post->likes)}}</a>
+                                    @endif
+                                    
+                                    
+                                    <a href="{{route('comment.comment', [$post->id])}}" role="button" class="btn btn-primary">コメント : {{count($post->comment)}}</a>
                                 </div>
                                 <div>
                                 </div>

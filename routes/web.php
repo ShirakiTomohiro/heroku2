@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
@@ -35,6 +35,8 @@ Route::group(['prefix' => 'admin'], function() {
     Route::post('news/edit', 'Admin\NewsController@update')->middleware('auth');
     Route::get('news/delete', 'Admin\NewsController@delete')->middleware('auth');
     Route::get('comment/show/{id}', 'Admin\CommentsController@show')->middleware('auth')->name('comment.show');
+    Route::get('users/change', 'Admin\UsersController@change')->middleware('auth');
+    Route::post('users/change', 'Admin\UsersController@update')->middleware('auth');
    
     
     //Route::get('profile', 'NewsController@profile')->middleware('auth');
@@ -50,7 +52,7 @@ Route::get('/likes/delete/{id}', 'Admin\LikesController@delete')->middleware('au
 
 
 Route::get('/', 'NewsController@index');
-Route::get('/home', 'NewsController@index');
+Route::get('/home', 'NewsController@index')->middleware('auth')->name('comment.show');
 
 
 

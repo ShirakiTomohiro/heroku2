@@ -2,31 +2,21 @@
 @section('title', '登録済みニュースの一覧')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <h2>ニュース一覧</h2>
+  <div class="container">
+    @section('sidebar')
+        <div class="sideber col-md-3 float-left">
+            <div class="row">
+                <table class="table table-dark">
+                    <thead>
+                        <tr>
+                            <th width="20%"><a href="{{ action('Admin\UsersController@change') }}" role="button" class="btn btn-primary">プロフィール編集</a></th>
+                        </tr>
+                    </thead>
+                </table>
+           </div> 
         </div>
-        <div class="row">
-            <div class="col-md-4">
-                <a href="{{ action('Admin\NewsController@add') }}" role="button" class="btn btn-primary">新規作成</a>
-            </div>
-            <div class="col-md-8">
-                <form action="{{ action('Admin\NewsController@index') }}" method="get">
-                    <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
-                        <div class="col-md-8">
-                            <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
-                        </div>
-                        <div class="col-md-2">
-                            {{ csrf_field() }}
-                            <input type="submit" class="btn btn-primary" value="検索">
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="list-news col-md-12 mx-auto">
+    @endsection
+            <div class="list-news col-md-6 float-right">
                 <div class="row">
                     <table class="table table-dark">
                         <thead>
@@ -59,6 +49,6 @@
                     </table>
                 </div>
             </div>
-        </div>
+        <!--</section>-->
     </div>
 @endsection

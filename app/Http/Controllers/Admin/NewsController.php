@@ -16,6 +16,7 @@ class NewsController extends Controller
     public function add()
   {
       $user_name =  Auth::user()->name;
+      
       return view('admin.news.create', ['user_name' => $user_name]);
   }
   
@@ -105,7 +106,9 @@ class NewsController extends Controller
   // 以下を追記
   public function delete(Request $request)
   {
+   
    // 該当するNews Modelを取得
+   $news = News::find($request->id);
      $news->delete();
      return redirect('admin/news/');
   }

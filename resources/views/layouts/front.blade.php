@@ -59,7 +59,7 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
-                                    <li><a class="nav-link" href = "{{ action('Admin\NewsController@create') }}">投稿</a></li>
+                                    <li><a class="nav-link" href = "{{ action('Admin\NewsController@add') }}">投稿</a></li>
                                     <li><a class="nav-link" href = "{{ action('Admin\NewsController@index') }}">Myページ</a></li>
                                 </div>
                             </li>
