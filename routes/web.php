@@ -37,10 +37,13 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('comment/show/{id}', 'Admin\CommentsController@show')->middleware('auth')->name('comment.show');
     Route::get('users/change', 'Admin\UsersController@change')->middleware('auth');
     Route::post('users/change', 'Admin\UsersController@update')->middleware('auth');
+    Route::get('layouts/front', 'NewsController@search');
    
     
     //Route::get('profile', 'NewsController@profile')->middleware('auth');
 });
+
+
 
 Route::get('/news/comment/{id}', 'Admin\CommentsController@comment')->middleware('auth')->name('comment.comment');
 Route::post('/news/comment', 'Admin\CommentsController@add')->middleware('auth');

@@ -3,19 +3,13 @@
 
 @section('content')
   <div class="container">
-    @section('sidebar')
-        <div class="sideber col-md-3 float-left">
-            <div class="row">
-                <table class="table table-dark">
-                    <thead>
-                        <tr>
-                            <th width="20%"><a href="{{ action('Admin\UsersController@change') }}" role="button" class="btn btn-primary">プロフィール編集</a></th>
-                        </tr>
-                    </thead>
-                </table>
-           </div> 
+    <div class="myhome col-me-5 float-left">
+        <div class="row">
+            <ul>
+                <li>退会</li>
+            </ul>
         </div>
-    @endsection
+    </div>
             <div class="list-news col-md-6 float-right">
                 <div class="row">
                     <table class="table table-dark">

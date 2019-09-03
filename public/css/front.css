@@ -1,6 +1,6 @@
 body {
-  color: #fff;
-  background-color: #000;
+  color: #000;
+  background-color: #fff;
 }
 
 .header .logo {
@@ -8,16 +8,20 @@ body {
   height: 82px;
 }
 
+.navbar {
+  background-color: #000;
+}
+
 .navbar-brand {
-  color: #fff !important;
+  color: #FF9933 !important;
 }
 
 .nav-link {
-  color: #fff !important;
+  color: #FF9933 !important;
 }
 
 .table-dark {
-  color: #fff;
+  color: #FF9933;
 }
 
 .headline .caption {
@@ -43,7 +47,19 @@ body {
 }
 
 .headline .caption .body {
-  font-size: 0.9em;
+  font-size: 1em;
+}
+
+.my-red:before {
+  color: F00;
+}
+
+.my-white:before {
+  border-color: #FFF;
+}
+
+.posts {
+  background-color: #EEEEEE;
 }
 
 .posts .post .date {
@@ -57,7 +73,11 @@ body {
 }
 
 .posts .post .body {
-  font-size: 1em;
+  font-size: 1.1em;
+}
+
+.posts .post .icon {
+  font-size: 1.1em;
 }
 
 .posts .post .image img {

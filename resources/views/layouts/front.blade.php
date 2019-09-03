@@ -17,13 +17,14 @@
          
          <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
          <link href="{{ secure_asset('css/front.css') }}" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     </head>
     <body>
         <div id="app">
             <nav class="navbar navbar-expand-md navbar-dark navbar-laravel">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'ARTICLE') }}
                     </a>
                     <button class="navbar-toggler" type="button" 
                     data-toggle="collapse" data-target="#navbarSupportedContent"aria-controls="navbarSupportedConten"
@@ -60,11 +61,12 @@
                                         @csrf
                                     </form>
                                     <li><a class="nav-link" href = "{{ action('Admin\NewsController@add') }}">投稿</a></li>
-                                    <li><a class="nav-link" href = "{{ action('Admin\NewsController@index') }}">Myページ</a></li>
+                                    <a class="nav-link" href = "{{ action('Admin\NewsController@index') }}"><i class="fas fa-home fa-2x" ></i></a>
                                 </div>
                             </li>
                             @endguest
                             {{-- 以上までを追記 --}}
+                         </div>
                         </ul>
                     </div>
                 </div>

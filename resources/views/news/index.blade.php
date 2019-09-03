@@ -1,4 +1,5 @@
 @extends('layouts.front')
+@section('title', '記事一覧')
 
 @section('content')
         <section class="container">
@@ -17,11 +18,12 @@
                                     {{ str_limit($post->title, 150) }}
                                 </div>
                                 <div class="body mt-3">
-                                    {{ str_limit($post->body, 1500) }}
+                                    {{ str_limit($post->body, 40) }}
                                 </div>
                                 <div>
                                     <a href="admin/comment/show/{{$post->id}}" role="button">続きを読む</a><br>
                                     <br>
+                                    <ul class="icon">
                                     <?php $liked = false; ?>
                                     @foreach($post->likes as $like)
                                      @if ($like->user->id == Auth::id())
@@ -29,13 +31,15 @@
                                      @endif
                                     @endforeach
                                     @if ($liked == true)
-                                    <a href="/likes/delete/{{$post->id}}" role="button" class="btn btn-primary">いいね解除</a>
+                                    <a href="/likes/delete/{{$post->id}}"><i class="fas fa-heart fa-lg my-white" role="button"></a></i><span> : {{count($post->likes)}}</span>
                                     @else
-                                    <a href="/likes/store/{{$post->id}}" role="button" class="btn btn-primary">いいね : {{count($post->likes)}}</a>
+                                    <a href="/likes/store/{{$post->id}}" ><i class="far fa-heart fa-lg my-red"　role="button"></a></i><span> : {{count($post->likes)}}</span>
+                                   
                                     @endif
+                                   
+                                    <a href="{{route('comment.comment', [$post->id])}}"><i class="far fa-comment-alt fa-lg" role="button"></a></i><span> : {{count($post->comment)}}</span>
                                     
-                                    
-                                    <a href="{{route('comment.comment', [$post->id])}}" role="button" class="btn btn-primary">コメント : {{count($post->comment)}}</a>
+                                    </ul>
                                 </div>
                                 <div>
                                 </div>

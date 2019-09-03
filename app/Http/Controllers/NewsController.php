@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace ARTICLE\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\HTML;
 
-use App\News;
-use App\Profile;
+use ARTICLE\News;
+use ARTICLE\Profile;
 
 class NewsController extends Controller
 {
@@ -19,6 +19,20 @@ class NewsController extends Controller
 
         return view('news.index', ['posts' =>$posts]);
     }
+    
+    
+    // public function search(Request $request)
+    // {
+    //     dd($request);
+    //     $cond_name = $request->cond_name;
+    //     if ($cond_name != '') {
+    //         $result = News::where('type', $cond_name)->get();
+    //     } else {
+    //         "検索結果なし";
+    //     }
+    //     return view('admin.layouts.front', ['result' => $result, 'cond_name' => $cond_name]);
+    // }
+    
     
     public function profile(Request $request)
     {

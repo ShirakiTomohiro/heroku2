@@ -2,7 +2,7 @@
 
 @section('content')
 <section class="container">
-            <div class="posts col-md-10 mx-auto mt-5">
+            <div class="posts col-md-8 mx-auto mt-3">
                 @foreach($news as $result)
                     <div class="post">
                         <div class="row">
@@ -27,13 +27,11 @@
                             </div>
                         </div>
                     </div>
-                    <hr color="#c0c0c0">
                 @endforeach
             </div>
         </section>
         <section class="container">
             <div class="posts col-md-7 mx-auto mt-5">
-                <h2>コメント一覧</h2>
                 @foreach($comment as $comments)
                     <div class="post">
                         <div class="row">

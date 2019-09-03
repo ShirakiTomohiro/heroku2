@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace ARTICLE;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,6 +12,6 @@ class Comment extends Model
     
     public function news()
     {
-         return $this->belongsTo('App\News');
+         return $this->belongsTo('ARTICLE\News');
     }
 }

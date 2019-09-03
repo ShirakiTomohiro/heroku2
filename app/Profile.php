@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace ARTICLE;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -17,6 +17,6 @@ class Profile extends Model
         
         public function record()
         {
-            return $this->hasMany('App\Record');
+            return $this->hasMany('ARTICLE\Record');
         }
 }

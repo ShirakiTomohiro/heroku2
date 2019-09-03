@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace ARTICLE\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use ARTICLE\Http\Controllers\Controller;
 
-use App\News;
-use App\History;
+use ARTICLE\News;
+use ARTICLE\History;
 use Carbon\Carbon;
 use Storage;
 use Auth;

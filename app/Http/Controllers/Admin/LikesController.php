@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace ARTICLE\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Like;
+use ARTICLE\Http\Controllers\Controller;
+use ARTICLE\Like;
 use Auth;
-use App\News;
-use App\User;
+use ARTICLE\News;
+use ARTICLE\User;
 use DB;
 use Carbon\Carbon;
 
