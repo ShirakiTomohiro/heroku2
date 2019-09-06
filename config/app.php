@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'ARTICLE'),
 
     /*
     |--------------------------------------------------------------------------
@@ -161,6 +161,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -169,11 +170,11 @@ return [
         /*
          * Application Service Providers...
          */
-        ARTICLE\Providers\AppServiceProvider::class,
-        ARTICLE\Providers\AuthServiceProvider::class,
-        // ARTICLE\Providers\BroadcastServiceProvider::class,
-        ARTICLE\Providers\EventServiceProvider::class,
-        ARTICLE\Providers\RouteServiceProvider::class,
+        Article\Providers\AppServiceProvider::class,
+        Article\Providers\AuthServiceProvider::class,
+        // Article\Providers\BroadcastServiceProvider::class,
+        Article\Providers\EventServiceProvider::class,
+        Article\Providers\RouteServiceProvider::class,
 
     ],
 
@@ -225,13 +226,11 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
     
-    'YoutubeServiceProvider' => [
-        Alaouy\Youtube\YoutubeServiceProvider::class,
-        'Youtube' => Alaouy\Youtube\Facades\Youtube::class,
-               ],
     
     
 

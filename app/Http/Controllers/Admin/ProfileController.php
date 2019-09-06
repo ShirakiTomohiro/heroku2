@@ -1,13 +1,13 @@
 <?php
 
-namespace ARTICLE\Http\Controllers\Admin;
+namespace Article\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use ARTICLE\Http\Controllers\Controller;
+use Article\Http\Controllers\Controller;
 
 
-use ARTICLE\Profile;
-use ARTICLE\Record;
+use Article\Profile;
+use Article\Record;
 use Carbon\Carbon;
 
 class ProfileController extends Controller

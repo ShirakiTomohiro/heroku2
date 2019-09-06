@@ -9,19 +9,19 @@ body {
 }
 
 .navbar {
-  background-color: #000;
+  background-color: #FF9933;
 }
 
 .navbar-brand {
-  color: #FF9933 !important;
+  color: #fff !important;
 }
 
 .nav-link {
-  color: #FF9933 !important;
+  color: #fff !important;
 }
 
 .table-dark {
-  color: #FF9933;
+  color: #fff;
 }
 
 .headline .caption {
@@ -50,12 +50,12 @@ body {
   font-size: 1em;
 }
 
-.my-red:before {
-  color: F00;
+.my-red {
+  color: #F00;
 }
 
-.my-white:before {
-  border-color: #FFF;
+.my-white {
+  border-color: #F00;
 }
 
 .posts {

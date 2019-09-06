@@ -1,6 +1,6 @@
 <?php
 
-namespace ARTICLE;
+namespace Article;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -39,16 +39,32 @@ class User extends Authenticatable
     
     public function like()
     {
-        return $this->hasMany('ARTICLE\Like');
+        return $this->hasMany('Article\Like');
     }
     
     public function news()
     {
-        return $this->hasMany('ARTICLE\News');
+        return $this->hasMany('Article\News');
     }
     
     public function comment()
     {
-        return $this->hasMany('ARTICLE\Comment');
+        return $this->hasMany('Article\Comment');
+    }
+    public function setlist()
+    {
+        return $this->hasMany('Article\Setlist');
+    }
+    
+    public function follow_user()
+    {
+        return $this->hasManyThrough(
+            User::class,
+            FollowUser::class,
+            'user_id',
+            'id',
+            null,
+            'followed_user_id'
+            );
     }
 }

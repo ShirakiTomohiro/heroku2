@@ -1,6 +1,6 @@
 <?php
 
-namespace ARTICLE;
+namespace Article;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,11 +10,24 @@ class Like extends Model
     
     public function news()
     {
-        return $this->belongsTo('ARTICLE\News');
+        return $this->belongsTo('Article\News');
     }
     
     public function user()
     {
-        return $this->belongsTo('ARTICLE\User');
+        return $this->belongsTo('Article\User');
     }
 }
+
+/*
+insert into types (name, created_at, updated_at) values 
+('マンガ', '2019-09-04 00:00:00', '2019-09-04 00:00:00'),
+('コラム', '2019-09-04 00:00:00', '2019-09-04 00:00:00'),
+('小説', '2019-09-04 00:00:00', '2019-09-04 00:00:00'),
+('写真', '2019-09-04 00:00:00', '2019-09-04 00:00:00'),
+('音楽', '2019-09-04 00:00:00', '2019-09-04 00:00:00'),
+('ビジネス', '2019-09-04 00:00:00', '2019-09-04 00:00:00'),
+('ライフスタイル', '2019-09-04 00:00:00', '2019-09-04 00:00:00'),
+('テクノロジー', '2019-09-04 00:00:00', '2019-09-04 00:00:00'),
+('エンタメ', '2019-09-04 00:00:00', '2019-09-04 00:00:00');
+*/

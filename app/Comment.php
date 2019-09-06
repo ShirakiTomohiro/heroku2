@@ -1,9 +1,10 @@
 <?php
 
-namespace ARTICLE;
+namespace Article;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Article\News;
+use Article\User;
 class Comment extends Model
 {
     protected $guarded = array('id');
@@ -12,6 +13,14 @@ class Comment extends Model
     
     public function news()
     {
-         return $this->belongsTo('ARTICLE\News');
+         return $this->belongsTo('Article\News');
     }
+    
+    
+    
+    public function user()
+    {
+        return $this->belongsTo('Article\User');
+    }
+    
 }

@@ -1,37 +1,36 @@
 <?php
 
-namespace ARTICLE\Http\Controllers;
+namespace Article\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\HTML;
-
-use ARTICLE\News;
-use ARTICLE\Profile;
+use Article\Type;
+use Article\News;
+use Article\Profile;
 
 class NewsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-     
-            $posts = News::all()->sortByDesc('updated_at');
+        $cond_title = $request->cond_title;
+            if ($cond_title !='') {
+                $posts = News::where('title', $cond_title)->get();
+            } else{
+                $posts = News::all()->sortByDesc('updated_at');
+            }
+        
+           foreach($posts as $post){
+            //   dd('test');
+               
+           }
             
             
 
-        return view('news.index', ['posts' =>$posts]);
+        return view('news.index', ['posts' =>$posts, 'cond_title' => $cond_title]);
     }
     
     
-    // public function search(Request $request)
-    // {
-    //     dd($request);
-    //     $cond_name = $request->cond_name;
-    //     if ($cond_name != '') {
-    //         $result = News::where('type', $cond_name)->get();
-    //     } else {
-    //         "検索結果なし";
-    //     }
-    //     return view('admin.layouts.front', ['result' => $result, 'cond_name' => $cond_name]);
-    // }
+   
     
     
     public function profile(Request $request)

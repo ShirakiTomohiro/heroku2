@@ -1,11 +1,11 @@
 <?php
 
-namespace ARTICLE\Http\Controllers\Admin;
+namespace Article\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use ARTICLE\Http\Controllers\Controller;
+use Article\Http\Controllers\Controller;
 use Auth;
-use ARTICLE\User;
+use Article\User;
 class UsersController extends Controller
 {
     public function change()

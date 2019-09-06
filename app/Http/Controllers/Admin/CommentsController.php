@@ -1,12 +1,13 @@
 <?php
 
-namespace ARTICLE\Http\Controllers\Admin;
+namespace Article\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use ARTICLE\Http\Controllers\Controller;
+use Article\Http\Controllers\Controller;
 use Auth;
-use ARTICLE\Comment;
-use ARTICLE\News;
+use Article\Comment;
+use Article\News;
+use Article\Setlist;
 
 class CommentsController extends Controller
 {
@@ -40,4 +41,5 @@ class CommentsController extends Controller
         return view('admin.comment.show', ['comment' => $comment, 'news' => $news]); 
         
     }
+
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace ARTICLE\Http\Middleware;
+namespace Article\Http\Middleware;
 
 use Illuminate\Http\Request;
 use Fideloper\Proxy\TrustProxies as Middleware;

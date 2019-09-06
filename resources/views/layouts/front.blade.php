@@ -60,18 +60,20 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
+                                    
                                     <li><a class="nav-link" href = "{{ action('Admin\NewsController@add') }}">投稿</a></li>
+                                    <li><a class="nav-link" href = "{{ action('SetlistsController@index') }}">セットリスト</a></li>
                                     <a class="nav-link" href = "{{ action('Admin\NewsController@index') }}"><i class="fas fa-home fa-2x" ></i></a>
                                 </div>
                             </li>
                             @endguest
                             {{-- 以上までを追記 --}}
+                            </ul>
+                             
                          </div>
-                        </ul>
                     </div>
+                  </nav>
                 </div>
-            </nav>
-            
             <main class="py-4">
                 @yield('content')
             </main>

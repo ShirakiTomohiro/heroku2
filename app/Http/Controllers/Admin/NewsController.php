@@ -1,23 +1,26 @@
 <?php
 
-namespace ARTICLE\Http\Controllers\Admin;
+namespace Article\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use ARTICLE\Http\Controllers\Controller;
+use Article\Http\Controllers\Controller;
 
-use ARTICLE\News;
-use ARTICLE\History;
+use Article\News;
+use Article\History;
 use Carbon\Carbon;
 use Storage;
 use Auth;
+use Article\Type;
 
 class NewsController extends Controller
 {
     public function add()
   {
-      $user_name =  Auth::user()->name;
       
-      return view('admin.news.create', ['user_name' => $user_name]);
+     
+      
+      
+      return view('admin.news.create');
   }
   
   public function create(Request $request)
@@ -25,6 +28,7 @@ class NewsController extends Controller
        $this->validate($request, News::$rules);
        $news = new News;
        $form = $request->all();
+      
 
       // フォームから画像が送信されてきたら、保存して、$news->image_path に画像のパスを保存する
       if (isset($form['image'])) {
@@ -40,8 +44,9 @@ class NewsController extends Controller
       unset($form['image']);
 
       // データベースに保存する
-      $news->fill($form);
      
+      $news->fill($form);
+      $news->user_id = Auth::user()->id;
        $news->save();
      
        return redirect('/home');

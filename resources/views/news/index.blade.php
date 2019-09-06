@@ -3,13 +3,29 @@
 
 @section('content')
         <section class="container">
+            <div class="search col-md-8 mx-auto mt-3">
+                   <form action="{{ action('NewsController@index') }}" method="get">
+                       <div class="form-group row">
+                             <label class="col-md-2">アーティスト名</label>
+                              <div class="col-md-8">
+                                <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
+                              </div>
+                                <div class="col-md-2">
+                                       {{ csrf_field() }}
+                                <input type="submit" class="btn btn-primary" value="検索">
+                                </div>
+                       </div>
+                   </form>
+                </div>
             <div class="posts col-md-8 mx-auto mt-3">
+                
                 @foreach($posts as $post)
+                    
                     <div class="post">
                         <div class="row">
                             <div class="text col-md-6">
                                 <div class="user_name">
-                                    {{ $post->user_name }}
+                                    {{ $post->user->name }}
                                 </div>
                                 <div class="date">
                                     {{ $post->updated_at->format('Y年m月d日') }}
@@ -31,6 +47,7 @@
                                      @endif
                                     @endforeach
                                     @if ($liked == true)
+                                    
                                     <a href="/likes/delete/{{$post->id}}"><i class="fas fa-heart fa-lg my-white" role="button"></a></i><span> : {{count($post->likes)}}</span>
                                     @else
                                     <a href="/likes/store/{{$post->id}}" ><i class="far fa-heart fa-lg my-red"　role="button"></a></i><span> : {{count($post->likes)}}</span>
@@ -39,7 +56,25 @@
                                    
                                     <a href="{{route('comment.comment', [$post->id])}}"><i class="far fa-comment-alt fa-lg" role="button"></a></i><span> : {{count($post->comment)}}</span>
                                     
+                                    <?php $followed = false; ?>
+                                    @if(Auth::user())
+                                        @foreach(Auth::user()->follow_user as $followUser)
+                                        @if ($followUser->id == $post->user_id)
+                                        <?php $followed = true;?>
+                                        @endif
+                                        @endforeach
+                                        @if (Auth::id() == $post->user_id)
+                                        @else
+                                        
+                                            @if ($followed == true)
+                                            <a href="/follow/destroy/{{$post->user->id}}" role = "button" class="btn btn-primary">解除</a>
+                                            @else
+                                            <a href="/follow/store/{{$post->user->id}}" role = "button" class="btn btn-primary">フォロー</a>
+                                            @endif
+                                        @endif
+                                    @endif
                                     </ul>
+                                    
                                 </div>
                                 <div>
                                 </div>
