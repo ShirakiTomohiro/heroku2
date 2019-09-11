@@ -50,12 +50,8 @@ body {
   font-size: 1em;
 }
 
-.my-red:before {
-  color: F00;
-}
-
-.my-white:before {
-  border-color: #FFF;
+.comment {
+  color: #808080;
 }
 
 .posts {
@@ -81,6 +77,6 @@ body {
 }
 
 .posts .post .image img {
-  width: 250px;
+  width: 100%;
 }
 

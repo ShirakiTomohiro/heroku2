@@ -18,18 +18,16 @@ class SetlistsController extends Controller
                 $posts = Setlist::all()->sortByDesc('updated_at');
                 
             }
-        
-           
-          
             
-
         return view('setlist.index', ['posts' =>$posts, 'cond_name' => $cond_name]);
     }
     
     public function add()
     {
         $user_name =  Auth::user()->name;
-        return view('admin.setlist.create', ['user_name' => $user_name]);
+        $user_id = Auth::user()->id;
+        
+        return view('admin.setlist.create', ['user_name' => $user_name, 'user_id'=> $user_id]);
     }
     
     public function create(Request $request)

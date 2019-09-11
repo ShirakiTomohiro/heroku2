@@ -1,7 +1,8 @@
 @extends('layouts.front')
+@section('title', '記事')
 
 @section('content')
-<section class="container">
+<div class="container">
             <div class="posts col-md-6 mx-auto mt-3">
                 @foreach($news as $result)
                     <div class="post">
@@ -29,8 +30,8 @@
                     </div>
                 @endforeach
             </div>
-        </section>
-        <section class="container">
+        </div>
+        <div class="container">
             <div class="posts col-md-7 mx-auto mt-5">
                 @foreach($comment as $comments)
                     <div class="post">
@@ -51,5 +52,5 @@
                     <hr color="#c0c0c0">
                 @endforeach
             </div>
-        </section>
+        </div>
 @endsection

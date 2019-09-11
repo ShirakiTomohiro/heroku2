@@ -11,6 +11,5 @@ class FollowUser extends Model
     protected $guarded = array('id');
     
     
-    
    
 }

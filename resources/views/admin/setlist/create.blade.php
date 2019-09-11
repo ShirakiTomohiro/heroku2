@@ -16,6 +16,7 @@
                         </ul>
                     @endif
                     <input type="hidden" name="user_name" value="{{ $user_name }}">
+                    <input type="hidden" name="user_id" value="{{ $user_id }}">
                     <div class="form-group row">
                         <label class="col-md-2" for="name">アーティスト</label>
                         <div class="col-md-6">

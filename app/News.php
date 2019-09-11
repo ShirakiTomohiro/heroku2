@@ -44,5 +44,9 @@ class News extends Model
             return $this->hasMany('Article\Setlist');
         }
         
+        public function relationship()
+        {
+            return $this->hasMany('Article\Relationship');
+        }
         
 }

@@ -37,10 +37,10 @@
                                     {{ str_limit($post->title, 30) }}
                                 </div>
                                 <div>
-                                    <a href="admin/cont/index/{{$post->id}}" role="button">続きを読む</a><br>
+                                    <a href="/setlist/cont/index/{{$post->id}}" role="button">続きを読む</a><br>
                                     <br>
                                     <div>
-                                        <a href="{{route('cont.collect', [$post->id])}}"><i class="far fa-comment-alt fa-lg" role="button"></a></i><span></span>
+                                        <a href="{{route('cont.collect', [$post->id])}}"><i class="far fa-comment-alt fa-lg comment" role="button"></a></i><span></span>
                                     </div>
                                 </div>
                             </div>

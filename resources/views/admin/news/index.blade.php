@@ -3,14 +3,11 @@
 
 @section('content')
   <div class="container">
-    <div class="myhome col-me-5 float-left">
-        <div class="row">
-            <ul>
-                <li>退会</li>
-            </ul>
-        </div>
-    </div>
-            <div class="list-news col-md-6 float-right">
+      <div class="row">
+          <h2>投稿した記事</h2>
+      </div>
+      <div class="row">
+            <div class="list-news col-md-12 mx-auto">
                 <div class="row">
                     <table class="table table-dark">
                         <thead>
@@ -26,7 +23,7 @@
                                 <tr>
                                     <th>{{ $news->id }}</th>
                                     <td>{{ str_limit($news->title, 100) }}</td>
-                                    <td>{{ str_limit($news->body, 250) }}</td>
+                                    <td>{{ str_limit($news->body, 50) }}</td>
                                     <td>
                                         <div>
                                             <a href="{{ action('Admin\NewsController@edit', 
@@ -43,6 +40,7 @@
                     </table>
                 </div>
             </div>
+        </div>
         <!--</section>-->
     </div>
 @endsection

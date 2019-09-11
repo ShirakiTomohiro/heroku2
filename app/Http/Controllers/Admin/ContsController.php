@@ -31,6 +31,7 @@ class ContsController extends Controller
     
      public function index($id)
     {
+        
         $setlist_id = $id;      
         $setlist = Setlist::where('id', $setlist_id)->get();
         $cont = Cont::where('setlist_id', $setlist_id)->get();

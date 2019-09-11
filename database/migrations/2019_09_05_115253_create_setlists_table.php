@@ -16,14 +16,14 @@ class CreateSetlistsTable extends Migration
         Schema::create('setlists', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('user_name');
-            $table->setlists('user_id');
+            $table->integer('user_id');
             $table->string('name');
             $table->string('title');
             $table->string('place');
             $table->string('from_year');
             $table->string('from_month');
             $table->string('from_day');
-            $table->string('body', 300);
+            $table->text('body', 700);
             $table->timestamps();
         });
     }
@@ -38,3 +38,4 @@ class CreateSetlistsTable extends Migration
         Schema::dropIfExists('setlists');
     }
 }
+

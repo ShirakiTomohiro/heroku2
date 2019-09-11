@@ -51,12 +51,12 @@ body {
   }
 }
 
-.my-red:before {
-  color:F00;
-}
 
-.my-white:before {
-  border-color:#FFF;
+
+
+
+.comment {
+  color:#808080;
 }
 
 .posts {
@@ -78,7 +78,7 @@ body {
     }
     .image {
       img {
-    width: 250px;
+    width: 100%;
       }
     }
   }

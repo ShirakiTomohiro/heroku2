@@ -7,27 +7,32 @@ use Illuminate\Support\Facades\HTML;
 use Article\Type;
 use Article\News;
 use Article\Profile;
+use Article\User;
+use Article\Relationship;
+use Auth;
+
 
 class NewsController extends Controller
 {
     public function index(Request $request)
     {
+        //dd($request);
         $cond_title = $request->cond_title;
-            if ($cond_title !='') {
-                $posts = News::where('title', $cond_title)->get();
-            } else{
-                $posts = News::all()->sortByDesc('updated_at');
-            }
+       
+        if ($cond_title !='' ) {
+            $posts = News::where('title', $cond_title)->get();
         
-           foreach($posts as $post){
-            //   dd('test');
-               
-           }
+            }else {
+                 $posts = News::all()->sortByDesc('updated_at');
+
+            }
+            return view('news.index', ['posts' =>$posts, 'cond_title' => $cond_title]);
+    }
             
             
 
-        return view('news.index', ['posts' =>$posts, 'cond_title' => $cond_title]);
-    }
+        
+    
     
     
    

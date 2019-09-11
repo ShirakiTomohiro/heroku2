@@ -55,10 +55,11 @@ class NewsController extends Controller
   public function index(Request $request)
   {
       $cond_title = $request->cond_title;
+      $user_id = Auth::user()->id;
       if ($cond_title != '') {
           $posts = News::where('title', $cond_title)->get();
       } else {
-          $posts = News::all();
+          $posts = News::where('user_id', $user_id)->get();
       }
       return view('admin.news.index', ['posts' => $posts, 'cond_title' =>
       $cond_title]);

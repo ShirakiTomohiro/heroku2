@@ -56,15 +56,19 @@ class User extends Authenticatable
         return $this->hasMany('Article\Setlist');
     }
     
-    public function follow_user()
+    // public function follow_user()
+    // {
+    //     return $this->hasManyThrough(
+    //         User::class,
+    //         FollowUser::class,
+    //         'user_id',
+    //         'id',
+    //         null,
+    //         'followed_user_id'
+    //         );
+    // }
+     public function active_relationships()
     {
-        return $this->hasManyThrough(
-            User::class,
-            FollowUser::class,
-            'user_id',
-            'id',
-            null,
-            'followed_user_id'
-            );
+        return $this->hasMany('Article\Relationship','follower_id');
     }
 }
