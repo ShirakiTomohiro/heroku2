@@ -1,10 +1,10 @@
 <?php
 
-namespace Article\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-use Article\Relationship;
+use App\Relationship;
 
 class Relationships extends Controller
 {

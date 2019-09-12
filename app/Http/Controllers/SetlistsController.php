@@ -1,9 +1,9 @@
 <?php
 
-namespace Article\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Article\Setlist;
+use App\Setlist;
 
 class SetlistsController extends Controller
 {

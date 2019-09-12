@@ -1,22 +1,22 @@
 <?php
 
-namespace Article;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Article\User;
-use Article\Setlist;
+use App\User;
+use App\Setlist;
 class Cont extends Model
 {
     protected $guarded = array('id');
     
     public function user()
     {
-        return $this->belongsTo('Article\User');
+        return $this->belongsTo('App\User');
     }
     
     public function setlist()
     {
-        return $this->belongsTo('Article\Setlist');
+        return $this->belongsTo('App\Setlist');
     }
 }
 

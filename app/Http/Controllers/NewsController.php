@@ -1,14 +1,14 @@
 <?php
 
-namespace Article\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\HTML;
-use Article\Type;
-use Article\News;
-use Article\Profile;
-use Article\User;
-use Article\Relationship;
+use App\Type;
+use App\News;
+use App\Profile;
+use App\User;
+use App\Relationship;
 use Auth;
 
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Article;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,12 +10,12 @@ class Like extends Model
     
     public function news()
     {
-        return $this->belongsTo('Article\News');
+        return $this->belongsTo('App\News');
     }
     
     public function user()
     {
-        return $this->belongsTo('Article\User');
+        return $this->belongsTo('App\User');
     }
 }
 

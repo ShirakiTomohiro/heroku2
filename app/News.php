@@ -1,6 +1,6 @@
 <?php
 
-namespace Article;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,37 +16,37 @@ class News extends Model
         // Newsモデルに関連付けを行う
         public function histories()
         {
-            return $this->hasMany('Article\History');
+            return $this->hasMany('App\History');
         }
         
         public function user()
         {
-            return $this->belongsTo('Article\User');
+            return $this->belongsTo('App\User');
         }
         
         public function likes()
         {
-            return $this->hasMany('Article\Like');
+            return $this->hasMany('App\Like');
         }
         
         public function comment()
         {
-            return $this->hasMany('Article\Comment');
+            return $this->hasMany('App\Comment');
         }
         
         public function type()
         {
-            return $this->belongsTo('Article\Type');
+            return $this->belongsTo('App\Type');
         }
         
         public function setlist()
         {
-            return $this->hasMany('Article\Setlist');
+            return $this->hasMany('App\Setlist');
         }
         
         public function relationship()
         {
-            return $this->hasMany('Article\Relationship');
+            return $this->hasMany('App\Relationship');
         }
         
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace Article;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Article\User;
+use App\User;
 class Setlist extends Model
 {
     protected $guarded = array('id');
@@ -19,11 +19,11 @@ class Setlist extends Model
         
     public function user()
     {
-        return $this->belongsTo('Article\User');
+        return $this->belongsTo('App\User');
     }
     
     public function comment()
     {
-        return $this->hasMany('Article\Comment');
+        return $this->hasMany('App\Comment');
     }
 }

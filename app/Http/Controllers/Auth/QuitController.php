@@ -1,9 +1,9 @@
 <?php
 
-namespace Article\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
-use Article\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
 class QuitController extends Controller
 {

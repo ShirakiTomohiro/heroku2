@@ -1,6 +1,6 @@
 <?php
 
-namespace Article;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
         
         public function news()
     {
-        return $this->hasMany('Article\News');
+        return $this->hasMany('App\News');
     }
    }
 

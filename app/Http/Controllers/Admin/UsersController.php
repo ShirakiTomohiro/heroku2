@@ -1,10 +1,10 @@
 <?php
 
-namespace Article\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Article\Http\Controllers\Controller;
-use Article\User;
+use App\Http\Controllers\Controller;
+use App\User;
 class UsersController extends Controller
 {
     public function delete($id)

@@ -1,13 +1,13 @@
 <?php
 
-namespace Article\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Article\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Auth;
-use Article\Comment;
-use Article\News;
-use Article\Setlist;
+use App\Comment;
+use App\News;
+use App\Setlist;
 
 class CommentsController extends Controller
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace Article\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Article\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 
-use Article\News;
-use Article\History;
+use App\News;
+use App\History;
 use Carbon\Carbon;
 use Storage;
 use Auth;
-use Article\Type;
+use App\Type;
 
 class NewsController extends Controller
 {
