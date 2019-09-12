@@ -21,6 +21,7 @@
                             <option value="followed">フォロー中</option>
                             <option value="all">全件</option>
                         </select>
+                        
                         <input type="submit" value="送信">
                        </form>
                    </form>

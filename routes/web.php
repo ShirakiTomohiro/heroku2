@@ -58,7 +58,7 @@ Route::get('/likes/store/{id}', 'Admin\LikesController@store')->middleware('auth
 Route::get('/likes/delete/{id}', 'Admin\LikesController@delete')->middleware('auth');
 
 Route::get('/follow/create/{id}', 'Relationships@create')->middleware('auth');
-Route::get('/follow/destroy/{id}', 'Admin\FollowUserController@destroy')->middleware('auth');
+Route::get('/follow/destroy/{id}', 'Relationships@destroy')->middleware('auth');
     
 
 

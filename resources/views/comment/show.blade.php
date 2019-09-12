@@ -7,24 +7,24 @@
                 @foreach($news as $result)
                     <div class="post">
                         <div class="row">
-                            <div class="text col-md-6">
+                            <div class="text col-md-12">
                                 <div class="user_name">
                                     {{ $result->user->name }}
                                 </div>
                                 <div class="date text-right">
                                     {{ $result->updated_at->format('Y年m月d日') }}
                                 </div>
-                                <!--<div class="title">-->
-                                <!--    {{ str_limit($result->title, 150) }}-->
-                                <!--</div>-->
-                                <div class="body mt-3">
-                                    {{ str_limit($result->body, 1500) }}
+                                <div class="title">
+                                    {{ str_limit($result->title, 150) }}
                                 </div>
-                                <div class="image col-md-6 mt-8 text-center">
+                                <div class="image col-md-10 mt-4">
                                     @if ($result->image_path)
                                     <img src="{{ $result->image_path }}">
                                     @endif
                                </div>
+                                <div class="body mt-3">
+                                    {{ str_limit($result->body, 1500) }}
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -17,7 +17,8 @@
                                     {{ str_limit($setlists->title, 150) }}
                                 </div>
                                 <div class="body mt-3">
-                                    {{ str_limit($setlists->body, 1500) }}
+                                   
+                                    <p>{!! nl2br(e($setlists->body)) !!}</p>
                                 </div>
                             </div>
                         </div>

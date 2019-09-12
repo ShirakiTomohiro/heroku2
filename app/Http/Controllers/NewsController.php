@@ -12,16 +12,24 @@ use Article\Relationship;
 use Auth;
 
 
+
 class NewsController extends Controller
 {
     public function index(Request $request)
     {
-        //dd($request);
+       //dd($request);
         $cond_title = $request->cond_title;
-       
+        $selected = $request->follow;
+        $user = Auth::user();
         if ($cond_title !='' ) {
             $posts = News::where('title', $cond_title)->get();
-        
+            
+            }elseif($selected == "followed") {
+                //$posts = Auth::user()->active_relationships;//->pluck("followed_id")
+                $follow_user_ids = Relationship::select(['followed_id'])->where('follower_id', $user->id)->get();
+                //dd($follow_user_ids);
+                $posts = News::whereIn('user_id', $follow_user_ids)->get();
+                //dd($posts);
             }else {
                  $posts = News::all()->sortByDesc('updated_at');
 
@@ -35,7 +43,7 @@ class NewsController extends Controller
     
     
     
-   
+   //$posts = Relationship::where('followed_id',$user_id)->get();
     
     
     public function profile(Request $request)

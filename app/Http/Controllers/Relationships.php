@@ -19,7 +19,8 @@ class Relationships extends Controller
     }
     public function destroy(Request $request)
     {
-        Relationship::where("followed_id = ? AND follower_id = ?",$request->id, Auth::user()->id)->delete();
+        //dd($request->id);
+        Relationship::whereRaw("followed_id = ? AND follower_id = ?", [$request->id, Auth::user()->id])->delete();
         return redirect('/home');
     }
 }
