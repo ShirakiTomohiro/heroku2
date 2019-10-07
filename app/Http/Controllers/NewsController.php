@@ -22,7 +22,7 @@ class NewsController extends Controller
         $selected = $request->follow;
         $user = Auth::user();
         if ($cond_title !='' ) {
-            $posts = News::where('title', $cond_title)->get();
+            $posts = News::where('title','like', "%$cond_title%")->get();
             
             }elseif($selected == "followed") {
                 //$posts = Auth::user()->active_relationships;//->pluck("followed_id")
@@ -46,24 +46,24 @@ class NewsController extends Controller
    //$posts = Relationship::where('followed_id',$user_id)->get();
     
     
-    public function profile(Request $request)
-    {
-        $cond_title = $request->cond_title;
-        if ($cond_title != '') {
-            $posts = Profile::where('name', $cond_title).orderBy('updated_at', 
-            'desc')->get();
-        } else {
-            $posts = Profile::all()->sortByDesc('updated_at');
-        }
+//     public function profile(Request $request)
+//     {
+//         $cond_title = $request->cond_title;
+//         if ($cond_title != '') {
+//             $posts = Profile::where('name', $cond_title).orderBy('updated_at', 
+//             'desc')->get();
+//         } else {
+//             $posts = Profile::all()->sortByDesc('updated_at');
+//         }
 
-        if (count($posts) > 0) {
-            $headline = $posts->shift();
-        } else {
-            $headline = null;
-        }
+//         if (count($posts) > 0) {
+//             $headline = $posts->shift();
+//         } else {
+//             $headline = null;
+//         }
             
         
         
-        return view('profile.index', ['headline' => $headline, 'posts' => $posts, 'cond_title' => $cond_title]);
-   }
+//         return view('profile.index', ['headline' => $headline, 'posts' => $posts, 'cond_title' => $cond_title]);
+//   }
  }
